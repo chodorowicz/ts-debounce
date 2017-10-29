@@ -1,5 +1,5 @@
-TypeScript implementation of debounce function
-=============================================
+TypeScript implementation of debounce function [![Build Status](https://travis-ci.org/chodorowicz/ts-debounce.svg?branch=master)](https://travis-ci.org/chodorowicz/ts-debounce)
+==============================================
 
 *Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was lass called. 
 
