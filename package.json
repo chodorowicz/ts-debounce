@@ -1,0 +1,35 @@
+{
+  "name": "ts-debounce",
+  "version": "0.1.0",
+  "description": "TypeScript implementation of debounce",
+  "main": "dist/src/index.js",
+  "typings":  "dist/src/index.d.ts",
+  "author": "Jakub Chodorowicz <chodorowicz@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "21.1.5",
+    "jest": "21.2.1",
+    "ts-jest": "21.1.4",
+    "typescript": "2.5.3"
+  },
+  "scripts": {
+    "build": "tsc -p ./ --outDir dist/",
+    "prepublish": "yarn run build",
+    "test": "yarn run test"
+  },
+  "engines": {
+    "node": "8.*",
+    "yarn": "1.*"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "timers": "fake"
+  }
+}
