@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc -p ./ --outDir dist/",
     "prepublish": "yarn run build",
-    "test": "yarn run test"
+    "test": "yarn run jest"
   },
   "engines": {
     "node": "8.*",
