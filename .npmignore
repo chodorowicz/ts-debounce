@@ -4,3 +4,4 @@ src/
 
 tsconfig.json
 yarn.lock
+*.tgz

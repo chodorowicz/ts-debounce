@@ -1,4 +1,6 @@
-node_modules
-index.js
+/node_modules
 /dist
+
+index.js
+yarn.lock
 *.tgz
