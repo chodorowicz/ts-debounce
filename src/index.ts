@@ -1,6 +1,11 @@
+/**
+ * A function that emits a side effect and does not return anything.
+ */
+export type Procedure = (...args: any[]) => void;
+
 export function debounce(
-  func: Function, 
-  waitMilliseconds = 50, 
+  func: Function,
+  waitMilliseconds = 50,
   isImmediate = false,
 ): typeof func {
   let timeoutId: number | undefined;
