@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "description": "TypeScript implementation of debounce",
   "main": "dist/src/index.js",
-  "typings":  "dist/src/index.d.ts",
+  "typings": "dist/src/index.d.ts",
   "author": "Jakub Chodorowicz <chodorowicz@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "21.1.5",
+    "@types/jest": "21.1.6",
     "jest": "21.2.1",
-    "ts-jest": "21.1.4",
-    "typescript": "2.5.3"
+    "ts-jest": "21.2.1",
+    "typescript": "2.6.1"
   },
   "scripts": {
     "build": "tsc -p ./ --outDir dist/",
