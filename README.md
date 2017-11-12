@@ -23,3 +23,6 @@ This implementation is based upon following sources:
 - [JavaScript Debounce Function](https://davidwalsh.name/javascript-debounce-function) by David Walsh
 - [Lodash implementation](https://lodash.com/)
 
+Contributors
+============
+- See [Contributors](./CONTRIBUTORS.md)
