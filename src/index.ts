@@ -1,8 +1,13 @@
-export function debounce(
-  func: Function, 
-  waitMilliseconds = 50, 
+/**
+ * A function that emits a side effect and does not return anything.
+ */
+export type Procedure = (...args: any[]) => void;
+
+export function debounce<F extends Procedure>(
+  func: F,
+  waitMilliseconds = 50,
   isImmediate = false,
-): typeof func {
+): F {
   let timeoutId: number | undefined;
 
   return function(this: any, ...args: any[]) {
@@ -26,5 +31,5 @@ export function debounce(
     if (shouldCallNow) {
       func.apply(context, args);
     }
-  }
+  } as any
 }
