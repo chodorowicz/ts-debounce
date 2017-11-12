@@ -5,8 +5,10 @@ test('sanity check', () => {
 });
 
 test('it properly debounces function', () =>{
+  jest.useFakeTimers();
+
   const func = jest.fn();
-  const debouncedFunction = debounce(func, 100, false);
+  const debouncedFunction = debounce(func, 100);
 
   debouncedFunction();
   expect(func).not.toBeCalled();
@@ -23,7 +25,7 @@ test('it properly debounces function with isImmediate set to true ', () =>{
   jest.useFakeTimers();
 
   const func = jest.fn();
-  const debouncedFunction = debounce(func, 100, true);
+  const debouncedFunction = debounce(func, 100, { isImmediate: true });
 
   debouncedFunction();
   expect(func).toBeCalled();
