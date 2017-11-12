@@ -3,24 +3,31 @@
  */
 export type Procedure = (...args: any[]) => void;
 
+export type Options = {
+  isImmediate: boolean,
+}
+
 export function debounce<F extends Procedure>(
   func: F,
   waitMilliseconds = 50,
-  isImmediate = false,
+  options: Options = { 
+    isImmediate: false 
+  },
 ): F {
   let timeoutId: number | undefined;
+  console.log(options);
 
   return function(this: any, ...args: any[]) {
     const context = this;
 
     const doLater = function() {
       timeoutId = undefined;
-      if (!isImmediate) {
+      if (!options.isImmediate) {
         func.apply(context, args);
       }
     }
 
-    const shouldCallNow = isImmediate && timeoutId === undefined;
+    const shouldCallNow = options.isImmediate && timeoutId === undefined;
 
     if (timeoutId !== undefined) {
       clearTimeout(timeoutId);
