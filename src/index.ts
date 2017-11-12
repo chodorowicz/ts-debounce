@@ -10,12 +10,11 @@ export type Options = {
 export function debounce<F extends Procedure>(
   func: F,
   waitMilliseconds = 50,
-  options: Options = { 
-    isImmediate: false 
+  options: Options = {
+    isImmediate: false
   },
 ): F {
   let timeoutId: number | undefined;
-  console.log(options);
 
   return function(this: any, ...args: any[]) {
     const context = this;
