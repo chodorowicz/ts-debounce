@@ -21,7 +21,7 @@
     "typescript": "2.6.1"
   },
   "scripts": {
-    "build": "tsc -p ./ --outDir dist/",
+    "build": "yarn run tsc -p ./ --outDir dist/",
     "prepublish": "yarn run build",
     "test": "yarn run jest"
   },
