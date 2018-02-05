@@ -8,6 +8,8 @@ It's very useful for scenarios where it's better to limit the number of times th
 Function arguments
 ==================
 ```ts
+import { debounce } from 'ts-debounce';
+
 const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
 ```
 - `originalFunction`
