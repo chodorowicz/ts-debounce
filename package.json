@@ -26,7 +26,7 @@
     "test": "yarn run jest"
   },
   "engines": {
-    "node": "8.*",
+    "node": ">8.*",
     "yarn": "1.*"
   },
   "jest": {
