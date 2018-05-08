@@ -1,6 +1,6 @@
 # TypeScript implementation of debounce function [![Build Status](https://travis-ci.org/chodorowicz/ts-debounce.svg?branch=master)](https://travis-ci.org/chodorowicz/ts-debounce)
 
-*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was lass called.
+*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was last called.
 
 It's very useful for scenarios where it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user stopped entering characters for some time.
 
@@ -14,11 +14,11 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
 - `originalFunction`
   - the function which we want to debounce
 - `waitMilliseconds`
-  - how many seconds must pass before last function call for original function to be caled
+  - how many seconds must pass after most recent function call, for the original function to be called
 - `options`
-  - options object support now one argument
+  - options object supports now one argument
   - `isImmediate`
-    - if set to `true` then `originalFunction` will be called immediatelly, but on subsequent calls of debounced function original function won't be called, unless `waitMilliseconds` passed after last call
+    - if set to `true` then `originalFunction` will be called immediately, but on subsequent calls of the debounced function original function won't be called, unless `waitMilliseconds` passed after last call
 
 ## Credits & inspiration
 
