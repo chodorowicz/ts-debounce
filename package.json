@@ -1,6 +1,6 @@
 {
   "name": "ts-debounce",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "TypeScript implementation of debounce",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
@@ -8,7 +8,15 @@
     "name": "Jakub Chodorowicz",
     "url": "https://github.com/chodorowicz"
   },
-  "keywords": ["TypeScript", "ts", "TS", "std lib", "function", "debounce", "wait"],
+  "keywords": [
+    "TypeScript",
+    "ts",
+    "TS",
+    "std lib",
+    "function",
+    "debounce",
+    "wait"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/chodorowicz/ts-debounce"
