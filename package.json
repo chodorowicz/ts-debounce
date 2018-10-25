@@ -1,6 +1,6 @@
 {
   "name": "ts-debounce",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "TypeScript implementation of debounce",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
