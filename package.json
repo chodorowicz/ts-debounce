@@ -33,10 +33,6 @@
     "prepublish": "yarn run build",
     "test": "yarn run jest"
   },
-  "engines": {
-    "node": ">=8.*",
-    "yarn": "1.*"
-  },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
