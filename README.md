@@ -1,4 +1,11 @@
-# TypeScript implementation of debounce function [![Build Status](https://travis-ci.org/chodorowicz/ts-debounce.svg?branch=master)](https://travis-ci.org/chodorowicz/ts-debounce)
+# TypeScript implementation of debounce function
+
+[![Build Status](https://travis-ci.org/chodorowicz/ts-debounce.svg?branch=master)](https://travis-ci.org/chodorowicz/ts-debounce)
+[![npm](https://img.shields.io/npm/v/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
+[![npm type definitions](https://img.shields.io/npm/types/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
+[![David](https://img.shields.io/david/chodorowicz/ts-debounce.svg)](https://david-dm.org/chodorowicz/ts-debounce)
+[![David](https://img.shields.io/david/peer/chodorowicz/ts-debounce.svg)](https://david-dm.org/chodorowicz/ts-debounce)
 
 *Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was last called.
 
