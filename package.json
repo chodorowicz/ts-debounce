@@ -25,13 +25,15 @@
   "devDependencies": {
     "@types/jest": "21.1.6",
     "jest": "21.2.1",
+    "np": "^3.0.4",
     "ts-jest": "21.2.1",
     "typescript": "2.6.1"
   },
   "scripts": {
     "build": "rm -rf ./dist && yarn run tsc -p ./ --outDir dist/",
     "prepublish": "yarn run build",
-    "test": "yarn run jest"
+    "test": "yarn run jest",
+    "release": "np --no-yarn"
   },
   "jest": {
     "transform": {
