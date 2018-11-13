@@ -23,16 +23,19 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "21.1.6",
-    "jest": "21.2.1",
+    "@types/jest": "^23.3.9",
+    "jest": "^23.6.0",
+    "microbundle": "^0.7.0",
     "np": "^3.0.4",
-    "ts-jest": "21.2.1",
-    "typescript": "2.6.1"
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.6"
   },
   "scripts": {
-    "build": "rm -rf ./dist && yarn run tsc -p ./ --outDir dist/",
-    "prepublish": "yarn run build",
-    "test": "yarn run jest",
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepublish": "npm run build",
+    "test": "jest && npm run test:types",
+    "test:types": "tsc --noEmit",
     "release": "np --no-yarn"
   },
   "jest": {

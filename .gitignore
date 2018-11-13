@@ -1,6 +1,6 @@
 /node_modules
 /dist
+/.rts2_cache_*
 
 index.js
-yarn.lock
 *.tgz
