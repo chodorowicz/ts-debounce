@@ -25,12 +25,14 @@
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "jest": "^23.6.0",
+    "microbundle": "^0.7.0",
     "np": "^3.0.4",
     "ts-jest": "^23.10.4",
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "build": "rm -rf ./dist && yarn run tsc -p ./ --outDir dist/",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "prepublish": "npm run build",
     "test": "jest && tsc",
     "release": "np --no-yarn"
