@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2018-11-13 [1.0.0]
+
+- [changed] use microbundle package for compilation
+- [changed] updated dev dependencies to newest versions
+
 ## 2018-05-08 [0.3.0]
 
 - [changed] loosen up Node requirement to include Node 8
