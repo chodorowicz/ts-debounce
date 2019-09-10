@@ -11,6 +11,7 @@
     "lib": [
       "dom",
       "es6"
-    ]
+    ],
+    "moduleResolution": "node"
   }
 }
