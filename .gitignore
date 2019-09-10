@@ -4,3 +4,4 @@
 
 index.js
 *.tgz
+/.vscode/settings.json
