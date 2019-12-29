@@ -1,6 +1,6 @@
 # TypeScript implementation of debounce function
 
-[![Build Status](https://travis-ci.org/chodorowicz/ts-debounce.svg?branch=master)](https://travis-ci.org/chodorowicz/ts-debounce)
+![Build Status](https://github.com/chodorowicz/ts-debounce//workflows/node-ci/badge.svg)
 [![npm](https://img.shields.io/npm/v/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
 [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
 [![npm type definitions](https://img.shields.io/npm/types/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
