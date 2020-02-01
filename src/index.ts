@@ -13,10 +13,10 @@ export function debounce<F extends Procedure>(
   options: Options = {
     isImmediate: false
   },
-): F {
+): (this: ThisParameterType<F>, ...args: Parameters<F>) => void {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-  return function(this: any, ...args: any[]) {
+  return function(this: ThisParameterType<F>, ...args: Parameters<F>) {
     const context = this;
 
     const doLater = function() {
@@ -37,5 +37,5 @@ export function debounce<F extends Procedure>(
     if (shouldCallNow) {
       func.apply(context, args);
     }
-  } as any
+  }
 }
