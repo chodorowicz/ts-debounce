@@ -33,6 +33,11 @@ This implementation is based upon following sources:
 - [JavaScript Debounce Function](https://davidwalsh.name/javascript-debounce-function) by David Walsh
 - [Lodash implementation](https://lodash.com/)
 
+## Compability
+
+- version 2 - TypeScript 3.3
+- version 1 - TypeScript 2.0
+
 ## Contributors
 
 | [<img src="https://avatars1.githubusercontent.com/u/20233319" width="100px;"/><br /><sub><b>Karol Majewski</b></sub>](https://github.com/karol-majewski)<br />[💻](https://github.com/chodorowicz/ts-debounce/commits?author=karol-majewski "Code") | [<img src="https://avatars1.githubusercontent.com/u/2027148" width="100px;"/><br /><sub><b>Fabien Rogeret</b></sub>](https://github.com/Tuizi)<br />[💻](https://github.com/chodorowicz/ts-debounce/commits?author=Tuizi "Code") | [<img src="https://avatars1.githubusercontent.com/u/1315090" width="100px;"/><br /><sub><b>Iman</b></sub>](https://github.com/iheidari)<br />[💻](https://github.com/chodorowicz/ts-debounce/commits?author=iheidari "Code")
