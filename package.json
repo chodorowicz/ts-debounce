@@ -17,6 +17,9 @@
     "debounce",
     "wait"
   ],
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/chodorowicz/ts-debounce"
