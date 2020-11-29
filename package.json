@@ -38,7 +38,8 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "prepublishOnly": "npm run build",
-    "test": "jest && npm run test:types",
+    "test": "npm run test:code && npm run test:types",
+    "test:code": "jest",
     "test:types": "tsc --noEmit",
     "release": "np --no-yarn"
   },
