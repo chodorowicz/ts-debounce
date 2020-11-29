@@ -29,6 +29,15 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
   - `isImmediate`
     - if set to `true` then `originalFunction` will be called immediately, but on subsequent calls of the debounced function original function won't be called, unless `waitMilliseconds` passed after last call
 
+## Cancellation
+
+The returned debounced function can be cancelled but by calling `cancel()` on it.
+```ts
+const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
+
+debouncedFunction.cancel();
+```
+
 ## Credits & inspiration
 
 This implementation is based upon following sources:
