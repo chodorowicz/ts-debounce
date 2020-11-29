@@ -7,16 +7,21 @@ export type Options = {
   isImmediate: boolean,
 }
 
+export interface DebouncedFunction<F extends Procedure> {
+  (this: ThisParameterType<F>, ...args: Parameters<F>): void;
+  cancel: () => void;
+}
+
 export function debounce<F extends Procedure>(
   func: F,
   waitMilliseconds = 50,
   options: Options = {
     isImmediate: false
   },
-): (this: ThisParameterType<F>, ...args: Parameters<F>) => void {
+): DebouncedFunction<F> {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-  return function(this: ThisParameterType<F>, ...args: Parameters<F>) {
+  const debouncedFunction = function(this: ThisParameterType<F>, ...args: Parameters<F>) {
     const context = this;
 
     const doLater = function() {
@@ -38,4 +43,12 @@ export function debounce<F extends Procedure>(
       func.apply(context, args);
     }
   }
+
+  debouncedFunction.cancel = function() {
+    if (timeoutId !== undefined) {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  return debouncedFunction;
 }
