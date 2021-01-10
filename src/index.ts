@@ -4,8 +4,9 @@
 export type Procedure = (...args: any[]) => void;
 
 export type Options = {
-  isImmediate: boolean,
-}
+  isImmediate?: boolean;
+  maxWait?: number;
+};
 
 export interface DebouncedFunction<F extends Procedure> {
   (this: ThisParameterType<F>, ...args: Parameters<F>): void;
@@ -15,40 +16,57 @@ export interface DebouncedFunction<F extends Procedure> {
 export function debounce<F extends Procedure>(
   func: F,
   waitMilliseconds = 50,
-  options: Options = {
-    isImmediate: false
-  },
+  options: Options = {}
 ): DebouncedFunction<F> {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  const isImmediate = options.isImmediate ?? false;
+  const maxWait = options.maxWait;
+  let lastInvokeTime = Date.now();
 
-  const debouncedFunction = function(this: ThisParameterType<F>, ...args: Parameters<F>) {
-    const context = this;
+  function nextInvokeTimeout() {
+    if (maxWait !== undefined) {
+      const timeSinceLastInvocation = Date.now() - lastInvokeTime;
 
-    const doLater = function() {
-      timeoutId = undefined;
-      if (!options.isImmediate) {
-        func.apply(context, args);
+      if (timeSinceLastInvocation + waitMilliseconds >= maxWait) {
+        return maxWait - timeSinceLastInvocation;
       }
     }
 
-    const shouldCallNow = options.isImmediate && timeoutId === undefined;
+    return waitMilliseconds;
+  }
+
+  const debouncedFunction = function (
+    this: ThisParameterType<F>,
+    ...args: Parameters<F>
+  ) {
+    const context = this;
+
+    const invokeFunction = function () {
+      timeoutId = undefined;
+      lastInvokeTime = Date.now();
+      if (!isImmediate) {
+        func.apply(context, args);
+      }
+    };
+
+    const shouldCallNow = isImmediate && timeoutId === undefined;
 
     if (timeoutId !== undefined) {
       clearTimeout(timeoutId);
     }
 
-    timeoutId = setTimeout(doLater, waitMilliseconds);
+    timeoutId = setTimeout(invokeFunction, nextInvokeTimeout());
 
     if (shouldCallNow) {
       func.apply(context, args);
     }
-  }
+  };
 
-  debouncedFunction.cancel = function() {
+  debouncedFunction.cancel = function () {
     if (timeoutId !== undefined) {
       clearTimeout(timeoutId);
     }
-  }
+  };
 
   return debouncedFunction;
 }
