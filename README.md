@@ -26,8 +26,11 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
   - how many seconds must pass after most recent function call, for the original function to be called
 - `options`
   - options object supports now one argument
-  - `isImmediate`
+  - `isImmediate` (boolean)
     - if set to `true` then `originalFunction` will be called immediately, but on subsequent calls of the debounced function original function won't be called, unless `waitMilliseconds` passed after last call
+  - `maxWait` (number)
+    - if defined it will call the `originalFunction` after `maxWait` time has passed, even if the debounced function is called in the meantime
+      - e.g. if `wait` is set to `100` and `maxWait` to `200`, then if the debounced function is called every 50ms, then the original function will be called after 200ms anyway
 
 ## Cancellation
 
