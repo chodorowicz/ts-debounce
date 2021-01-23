@@ -3,6 +3,7 @@
   "version": "2.2.0",
   "description": "TypeScript implementation of debounce",
   "main": "dist/src/index.js",
+  "module": "dist/src/index.esm.js",
   "typings": "dist/src/index.d.ts",
   "author": {
     "name": "Jakub Chodorowicz",
