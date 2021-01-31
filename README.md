@@ -13,6 +13,20 @@
 
 It's very useful for scenarios where it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user stopped entering characters for some time.
 
+## Install
+
+You can install this package using `npm` using the command below
+
+```bash
+npm install ts-debounce
+```
+
+If you prefer `yarn`, install using the command below
+
+```bash
+yarn add ts-debounce
+```
+
 ## Function arguments
 
 ```ts
