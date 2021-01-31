@@ -1,11 +1,12 @@
 /**
- * A function that emits a side effect and does not return anything.
+ * A function that emits a side effect.
  */
-export type Procedure = (...args: any[]) => void;
+export type Procedure = (...args: any[]) => any;
 
-export type Options = {
+export type Options<TT> = {
   isImmediate?: boolean;
   maxWait?: number;
+  callback?: (data: TT) => void
 };
 
 export interface DebouncedFunction<F extends Procedure> {
@@ -16,10 +17,11 @@ export interface DebouncedFunction<F extends Procedure> {
 export function debounce<F extends Procedure>(
   func: F,
   waitMilliseconds = 50,
-  options: Options = {}
+  options: Options<ReturnType<F>> = {}
 ): DebouncedFunction<F> {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
   const isImmediate = options.isImmediate ?? false;
+  const callback = options.callback ?? false;
   const maxWait = options.maxWait;
   let lastInvokeTime = Date.now();
 
@@ -45,6 +47,10 @@ export function debounce<F extends Procedure>(
       timeoutId = undefined;
       lastInvokeTime = Date.now();
       if (!isImmediate) {
+        if (callback) {
+          callback(func.apply(context, args));
+          return
+        }
         func.apply(context, args);
       }
     };
@@ -58,6 +64,10 @@ export function debounce<F extends Procedure>(
     timeoutId = setTimeout(invokeFunction, nextInvokeTimeout());
 
     if (shouldCallNow) {
+      if (callback) {
+        callback(func.apply(context, args));
+        return
+      }
       func.apply(context, args);
     }
   };

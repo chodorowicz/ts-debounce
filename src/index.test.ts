@@ -98,4 +98,26 @@ describe("debounce", () => {
       expect(func).toBeCalled();
     });
   });
+
+  describe('callback', () => {
+    test("it properly debounces function with callback provided", () => {
+      const func = () => {
+        return {
+          message: 'Hello World',
+          sayHi: (name: string) => `Hello, ${name}`,
+          age: 23
+        }
+      }
+
+      const debouncedFunction = debounce(func, 100, {
+        callback: (data) => {
+          expect(data.age).toBe(23)
+          expect(data.message).toBe('Hello World')
+          expect(data.sayHi('User')).toBe('Hello, User')
+        }
+      });
+
+      debouncedFunction();
+    });
+  })
 });
