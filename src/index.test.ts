@@ -120,4 +120,14 @@ describe("debounce", () => {
       debouncedFunction();
     });
   })
+
+  describe('promise', () => {
+    test("it properly debounces function and returns a Promise", () => {
+      const func = () => 12345;
+      const debouncedFunction = debounce(func, 100);
+
+      const result = debouncedFunction();
+      expect(result).resolves.toEqual(12345)
+    });
+  })
 });

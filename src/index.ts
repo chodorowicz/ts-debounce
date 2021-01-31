@@ -10,7 +10,7 @@ export type Options<TT> = {
 };
 
 export interface DebouncedFunction<F extends Procedure> {
-  (this: ThisParameterType<F>, ...args: Parameters<F>): void;
+  (this: ThisParameterType<F>, ...args: Parameters<F>): Promise<ReturnType<F>>;
   cancel: () => void;
 }
 
@@ -40,36 +40,34 @@ export function debounce<F extends Procedure>(
   const debouncedFunction = function (
     this: ThisParameterType<F>,
     ...args: Parameters<F>
-  ) {
+  ): Promise<ReturnType<F>> {
     const context = this;
-
-    const invokeFunction = function () {
-      timeoutId = undefined;
-      lastInvokeTime = Date.now();
-      if (!isImmediate) {
-        if (callback) {
-          callback(func.apply(context, args));
-          return
+    return new Promise(resolve => {
+      const invokeFunction = function () {
+        timeoutId = undefined;
+        lastInvokeTime = Date.now();
+        if (!isImmediate) {
+          const result = func.apply(context, args)
+          callback && callback(result);
+          resolve(result)
         }
-        func.apply(context, args);
+      };
+
+      const shouldCallNow = isImmediate && timeoutId === undefined;
+
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
       }
-    };
 
-    const shouldCallNow = isImmediate && timeoutId === undefined;
+      timeoutId = setTimeout(invokeFunction, nextInvokeTimeout());
 
-    if (timeoutId !== undefined) {
-      clearTimeout(timeoutId);
-    }
-
-    timeoutId = setTimeout(invokeFunction, nextInvokeTimeout());
-
-    if (shouldCallNow) {
-      if (callback) {
-        callback(func.apply(context, args));
-        return
+      if (shouldCallNow) {
+        const result = func.apply(context, args)
+        callback && callback(result);
+        resolve(result)
       }
-      func.apply(context, args);
-    }
+    })
+
   };
 
   debouncedFunction.cancel = function () {
