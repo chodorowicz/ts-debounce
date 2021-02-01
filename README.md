@@ -9,9 +9,9 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was last called.
+*Debounce* creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was last called.
 
-It's very useful for scenarios where it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user stopped entering characters for some time.
+It's very useful for scenarios when it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user has stopped entering characters for some time.
 
 ## Install
 
