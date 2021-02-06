@@ -25,6 +25,8 @@ export function debounce<F extends Procedure>(
   const maxWait = options.maxWait;
   let lastInvokeTime = Date.now();
 
+  let promises: Array<(x: ReturnType<F>) => void> = []
+
   function nextInvokeTimeout() {
     if (maxWait !== undefined) {
       const timeSinceLastInvocation = Date.now() - lastInvokeTime;
@@ -49,7 +51,8 @@ export function debounce<F extends Procedure>(
         if (!isImmediate) {
           const result = func.apply(context, args)
           callback && callback(result);
-          resolve(result)
+          promises.forEach(resolve => resolve(result))
+          promises = []
         }
       };
 
@@ -64,8 +67,9 @@ export function debounce<F extends Procedure>(
       if (shouldCallNow) {
         const result = func.apply(context, args)
         callback && callback(result);
-        resolve(result)
+        return resolve(result)
       }
+      promises.push(resolve)
     })
 
   };
@@ -74,6 +78,7 @@ export function debounce<F extends Procedure>(
     if (timeoutId !== undefined) {
       clearTimeout(timeoutId);
     }
+    promises = []
   };
 
   return debouncedFunction;
