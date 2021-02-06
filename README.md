@@ -9,7 +9,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was last called.
+*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drops previous pending delayed emissions if a new invocation is made before `n` milliseconds.
 
 It's very useful for scenarios where it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user stopped entering characters for some time.
 
