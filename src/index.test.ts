@@ -127,7 +127,24 @@ describe("debounce", () => {
       const debouncedFunction = debounce(func, 100);
 
       const result = debouncedFunction();
+      const result1 = debouncedFunction();
       expect(result).resolves.toEqual(12345)
+      expect(result1).resolves.toEqual(12345)
+    });
+
+
+    test("it properly rejects after debounced function is cancelled", () => {
+      const func = () => 12345;
+      const debouncedFunction = debounce(func, 100);
+
+      const result = debouncedFunction();
+      const result1 = debouncedFunction();
+
+      const reason = 'changed my mind';
+      debouncedFunction.cancel(reason)
+
+      expect(result).rejects.toEqual(reason)
+      expect(result1).rejects.toEqual(reason)
     });
   })
 });
