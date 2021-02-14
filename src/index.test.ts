@@ -101,19 +101,18 @@ describe("debounce", () => {
 
   describe('callback', () => {
     test("it properly debounces function with callback provided", () => {
-      const func = () => {
-        return {
-          message: 'Hello World',
-          sayHi: (name: string) => `Hello, ${name}`,
-          age: 23
-        }
-      }
+      const mockValue = {
+        message: 'Hello World',
+        sayHi: (name: string) => `Hello, ${name}`,
+        age: 23
+      };
+      const func = jest.fn().mockReturnValue(mockValue)
 
       const debouncedFunction = debounce(func, 100, {
         callback: (data) => {
-          expect(data.age).toBe(23)
-          expect(data.message).toBe('Hello World')
-          expect(data.sayHi('User')).toBe('Hello, User')
+          expect(data.age).toBe(mockValue.age)
+          expect(data.message).toBe(mockValue.message)
+          expect(data.sayHi('User')).toBe(mockValue.sayHi('User'))
         }
       });
 
@@ -122,8 +121,8 @@ describe("debounce", () => {
   })
 
   describe('promise', () => {
-    test("it properly debounces function and returns a Promise", () => {
-      const func = () => 12345;
+    test("it properly debounces function and returns a Promise", async () => {
+      const func = jest.fn().mockReturnValue(12345);
       const debouncedFunction = debounce(func, 100);
 
       const result = debouncedFunction();
@@ -134,7 +133,7 @@ describe("debounce", () => {
 
 
     test("it properly rejects after debounced function is cancelled", () => {
-      const func = () => 12345;
+      const func = jest.fn();
       const debouncedFunction = debounce(func, 100);
 
       const result = debouncedFunction();
