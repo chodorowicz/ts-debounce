@@ -129,6 +129,10 @@ describe("debounce", () => {
 
       const result = debouncedFunction();
       const result1 = debouncedFunction();
+
+      jest.advanceTimersByTime(100);
+      await Promise.all([result, result1])
+
       expect(result).resolves.toEqual(12345)
       expect(result1).resolves.toEqual(12345)
     });
