@@ -45,7 +45,7 @@ describe("debounce", () => {
     const func = jest.fn();
     const debouncedFunction = debounce(func, 100);
 
-    debouncedFunction();
+    const result = debouncedFunction();
     expect(func).not.toBeCalled();
 
     jest.advanceTimersByTime(50);
@@ -55,6 +55,8 @@ describe("debounce", () => {
 
     jest.advanceTimersByTime(100);
     expect(func).not.toBeCalled();
+
+    expect(result).rejects.toBeUndefined();
   });
 
   describe("maxWait", () => {
