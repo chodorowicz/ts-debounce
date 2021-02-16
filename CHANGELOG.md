@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2021-02-16 [2.3.0]
+
+- ✨ [new] support for promises (thanks @sanduluca)
+- ✨ [new]. support for callback (thanks @sanduluca)
+- 📝 [new] Update docs in relation to this release
+- 💥 [breaking] `ts-debounce` assumes that Promise is available
+
 ## 2021-02-02 [2.3.0]
 - ✨ [new] added ES module key to support ES module import
 - 📝 [changed] updated docs
