@@ -45,7 +45,7 @@ describe("debounce", () => {
     const func = jest.fn();
     const debouncedFunction = debounce(func, 100);
 
-    debouncedFunction();
+    const result = debouncedFunction();
     expect(func).not.toBeCalled();
 
     jest.advanceTimersByTime(50);
@@ -55,6 +55,8 @@ describe("debounce", () => {
 
     jest.advanceTimersByTime(100);
     expect(func).not.toBeCalled();
+
+    expect(result).rejects.toBeUndefined();
   });
 
   describe("maxWait", () => {
@@ -98,4 +100,56 @@ describe("debounce", () => {
       expect(func).toBeCalled();
     });
   });
+
+  describe('callback', () => {
+    test("it properly debounces function with callback provided", () => {
+      const mockValue = {
+        message: 'Hello World',
+        sayHi: (name: string) => `Hello, ${name}`,
+        age: 23
+      };
+      const func = jest.fn().mockReturnValue(mockValue)
+
+      const debouncedFunction = debounce(func, 100, {
+        callback: (data) => {
+          expect(data.age).toBe(mockValue.age)
+          expect(data.message).toBe(mockValue.message)
+          expect(data.sayHi('User')).toBe(mockValue.sayHi('User'))
+        }
+      });
+
+      debouncedFunction();
+    });
+  })
+
+  describe('promise', () => {
+    test("it properly debounces function and returns a Promise", async () => {
+      const func = jest.fn().mockReturnValue(12345);
+      const debouncedFunction = debounce(func, 100);
+
+      const result = debouncedFunction();
+      const result1 = debouncedFunction();
+
+      jest.advanceTimersByTime(100);
+      await Promise.all([result, result1])
+
+      expect(result).resolves.toEqual(12345)
+      expect(result1).resolves.toEqual(12345)
+    });
+
+
+    test("it properly rejects after debounced function is cancelled", () => {
+      const func = jest.fn();
+      const debouncedFunction = debounce(func, 100);
+
+      const result = debouncedFunction();
+      const result1 = debouncedFunction();
+
+      const reason = 'changed my mind';
+      debouncedFunction.cancel(reason)
+
+      expect(result).rejects.toEqual(reason)
+      expect(result1).rejects.toEqual(reason)
+    });
+  })
 });

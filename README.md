@@ -9,7 +9,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-*Debounce* creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds after it was last called.
+*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drops previous pending delayed emissions if a new invocation is made before `n` milliseconds.
 
 It's very useful for scenarios when it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user has stopped entering characters for some time.
 
@@ -44,6 +44,8 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
   - `maxWait` (number)
     - if defined it will call the `originalFunction` after `maxWait` time has passed, even if the debounced function is called in the meantime
       - e.g. if `wait` is set to `100` and `maxWait` to `200`, then if the debounced function is called every 50ms, then the original function will be called after 200ms anyway
+  - `callback` (function)
+    - it is called when `originalFunction` is debounced and recives as first parameter returned data from `originalFunction`
 
 ## Cancellation
 
