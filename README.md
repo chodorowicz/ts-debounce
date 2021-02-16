@@ -9,7 +9,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-*Debounce* create a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drops previous pending delayed emissions if a new invocation is made before `n` milliseconds.
+*Debounce* creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drops previous pending delayed emissions if a new invocation is made before `n` milliseconds.
 
 It's very useful for scenarios when it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user has stopped entering characters for some time.
 
@@ -56,13 +56,28 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
 debouncedFunction.cancel();
 ```
 
+## Promises
+
+Since v3 `ts-debounce` has Promise support. Everytime you call debounced function a promise is returned which will be resolved when the original function will be finally called. This promise will be rejected, if the debounced function will be called.
+
+ You can also debounce a function `f` which returns a promise. The returned promise(s) will resolve (unless cancelled) with the return value of the original function.
+
+```ts
+const asyncFunction = async () => 'value';
+const g = debounce(asyncFunction);
+const returnValue = await g();
+returnValue === 'value' // true
+```
+
 ## Credits & inspiration
 
 This implementation is based upon following sources:
 - [JavaScript Debounce Function](https://davidwalsh.name/javascript-debounce-function) by David Walsh
 - [Lodash implementation](https://lodash.com/)
+- [p-debounce](https://github.com/sindresorhus/p-debounce)
 
 ## Compability
 
+- version 3 - Promise must be available in the global namespace
 - version 2 - TypeScript 3.3
 - version 1 - TypeScript 2.0
