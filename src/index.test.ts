@@ -101,28 +101,25 @@ describe("debounce", () => {
     });
   });
 
-  describe('callback', () => {
-    test("it properly debounces function with callback provided", () => {
+  describe("callback", () => {
+    test("it properly debounces function with callback provided", async () => {
       const mockValue = {
-        message: 'Hello World',
-        sayHi: (name: string) => `Hello, ${name}`,
-        age: 23
+        message: "Hello World",
       };
-      const func = jest.fn().mockReturnValue(mockValue)
+      const callback = jest.fn();
+      const func = jest.fn().mockReturnValue(mockValue);
 
       const debouncedFunction = debounce(func, 100, {
-        callback: (data) => {
-          expect(data.age).toBe(mockValue.age)
-          expect(data.message).toBe(mockValue.message)
-          expect(data.sayHi('User')).toBe(mockValue.sayHi('User'))
-        }
+        callback,
       });
-
-      debouncedFunction();
+      const promise = debouncedFunction();
+      jest.advanceTimersByTime(100);
+      await promise;
+      expect(callback).toBeCalledWith(mockValue)
     });
-  })
+  });
 
-  describe('promise', () => {
+  describe("promises", () => {
     test("it properly debounces function and returns a Promise", async () => {
       const func = jest.fn().mockReturnValue(12345);
       const debouncedFunction = debounce(func, 100);
@@ -131,25 +128,34 @@ describe("debounce", () => {
       const result1 = debouncedFunction();
 
       jest.advanceTimersByTime(100);
-      await Promise.all([result, result1])
 
-      expect(result).resolves.toEqual(12345)
-      expect(result1).resolves.toEqual(12345)
+      await expect(result).resolves.toEqual(12345);
+      await expect(result1).resolves.toEqual(12345);
     });
 
+    test("it properly debounces async functions", async () => {
+      const asyncFunc = jest.fn().mockResolvedValue(12345);
+      const debouncedFunction = debounce(asyncFunc, 100);
 
-    test("it properly rejects after debounced function is cancelled", () => {
+      const promise = debouncedFunction();
+
+      jest.advanceTimersByTime(100);
+
+      await expect(promise).resolves.toEqual(12345);
+    });
+
+    test("it properly rejects after debounced function is cancelled", async () => {
       const func = jest.fn();
       const debouncedFunction = debounce(func, 100);
 
       const result = debouncedFunction();
       const result1 = debouncedFunction();
 
-      const reason = 'changed my mind';
-      debouncedFunction.cancel(reason)
+      const reason = "changed my mind";
+      debouncedFunction.cancel(reason);
 
-      expect(result).rejects.toEqual(reason)
-      expect(result1).rejects.toEqual(reason)
+      await expect(result).rejects.toEqual(reason);
+      await expect(result1).rejects.toEqual(reason);
     });
-  })
+  });
 });
