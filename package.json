@@ -43,6 +43,7 @@
     "test": "npm run test:code && npm run test:types",
     "test:code": "jest",
     "test:types": "tsc --noEmit",
+    "prettier:check": "prettier --check .",
     "release": "np --no-yarn"
   },
   "jest": {
