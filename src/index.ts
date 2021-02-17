@@ -6,7 +6,7 @@ export type Procedure = (...args: any[]) => any;
 export type Options<TT> = {
   isImmediate?: boolean;
   maxWait?: number;
-  callback?: (data: TT) => void
+  callback?: (data: TT) => void;
 };
 
 export interface DebouncedFunction<F extends Procedure> {
@@ -26,9 +26,9 @@ export function debounce<F extends Procedure>(
   let lastInvokeTime = Date.now();
 
   let promises: {
-    resolve: (x: ReturnType<F>) => void
-    reject: (reason?: any) => void
-  }[] = []
+    resolve: (x: ReturnType<F>) => void;
+    reject: (reason?: any) => void;
+  }[] = [];
 
   function nextInvokeTimeout() {
     if (maxWait !== undefined) {
@@ -52,10 +52,10 @@ export function debounce<F extends Procedure>(
         timeoutId = undefined;
         lastInvokeTime = Date.now();
         if (!isImmediate) {
-          const result = func.apply(context, args)
+          const result = func.apply(context, args);
           callback && callback(result);
-          promises.forEach(({ resolve }) => resolve(result))
-          promises = []
+          promises.forEach(({ resolve }) => resolve(result));
+          promises = [];
         }
       };
 
@@ -68,21 +68,20 @@ export function debounce<F extends Procedure>(
       timeoutId = setTimeout(invokeFunction, nextInvokeTimeout());
 
       if (shouldCallNow) {
-        const result = func.apply(context, args)
+        const result = func.apply(context, args);
         callback && callback(result);
-        return resolve(result)
+        return resolve(result);
       }
-      promises.push({ resolve, reject })
-    })
-
+      promises.push({ resolve, reject });
+    });
   };
 
   debouncedFunction.cancel = function (reason?: any) {
     if (timeoutId !== undefined) {
       clearTimeout(timeoutId);
     }
-    promises.forEach(({ reject }) => reject(reason))
-    promises = []
+    promises.forEach(({ reject }) => reject(reason));
+    promises = [];
   };
 
   return debouncedFunction;

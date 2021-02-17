@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - 💥 [breaking] `ts-debounce` assumes that Promise is available
 
 ## 2021-02-02 [2.3.0]
+
 - ✨ [new] added ES module key to support ES module import
 - 📝 [changed] updated docs
 

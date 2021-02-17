@@ -115,7 +115,7 @@ describe("debounce", () => {
       const promise = debouncedFunction();
       jest.advanceTimersByTime(100);
       await promise;
-      expect(callback).toBeCalledWith(mockValue)
+      expect(callback).toBeCalledWith(mockValue);
     });
   });
 
