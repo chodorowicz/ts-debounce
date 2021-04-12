@@ -50,7 +50,7 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
     - if defined it will call the `originalFunction` after `maxWait` time has passed, even if the debounced function is called in the meantime
       - e.g. if `wait` is set to `100` and `maxWait` to `200`, then if the debounced function is called every 50ms, then the original function will be called after 200ms anyway
   - `callback` (function)
-    - it is called when `originalFunction` is debounced and recives as first parameter returned data from `originalFunction`
+    - it is called when `originalFunction` is debounced and receives as first parameter returned data from `originalFunction`
 
 ## Cancellation
 
@@ -64,7 +64,7 @@ debouncedFunction.cancel();
 
 ## Promises
 
-Since v3 `ts-debounce` has Promise support. Everytime you call debounced function a promise is returned which will be resolved when the original function will be finally called. This promise will be rejected, if the debounced function will be called.
+Since v3 `ts-debounce` has Promise support. Everytime you call debounced function a promise is returned which will be resolved when the original function will be finally called. This promise will be rejected, if the debounced function will be cancelled.
 
 You can also debounce a function `f` which returns a promise. The returned promise(s) will resolve (unless cancelled) with the return value of the original function.
 
