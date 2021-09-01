@@ -54,7 +54,7 @@ const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
 
 ## Cancellation
 
-The returned debounced function can be cancelled but by calling `cancel()` on it.
+The returned debounced function can be cancelled by calling `cancel()` on it.
 
 ```ts
 const debouncedFunction = debounce(originalFunction, waitMilliseconds, options);
