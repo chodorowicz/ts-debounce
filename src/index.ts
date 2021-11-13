@@ -5,7 +5,7 @@ export type Options<Result> = {
 };
 
 export interface DebouncedFunction<
-  Args extends unknown[],
+  Args extends any[],
   F extends (...args: Args) => any
 > {
   (this: ThisParameterType<F>, ...args: Args): Promise<ReturnType<F>>;
@@ -17,14 +17,16 @@ interface DebouncedPromise<FunctionReturn> {
   reject: (reason?: any) => void;
 }
 
-export function debounce<
-  Args extends unknown[],
-  F extends (...args: Args) => any
->(
+export function debounce<Args extends any[], F extends (...args: Args) => any>(
   func: F,
   waitMilliseconds = 50,
   options: Options<ReturnType<F>> = {}
-): DebouncedFunction<Args, F> {
+): {
+  (this: ThisParameterType<F>, ...args: Parameters<F> & Args): Promise<
+    ReturnType<F>
+  >;
+  cancel: (reason?: any) => void;
+} {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
   const isImmediate = options.isImmediate ?? false;
   const callback = options.callback ?? false;
@@ -47,7 +49,7 @@ export function debounce<
 
   const debouncedFunction = function (
     this: ThisParameterType<F>,
-    ...args: Args
+    ...args: Parameters<F>
   ) {
     const context = this;
     return new Promise<ReturnType<F>>((resolve, reject) => {

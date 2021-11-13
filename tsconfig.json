@@ -9,6 +9,7 @@
     "outDir": "dist",
     "esModuleInterop": true,
     "lib": ["dom", "es6"],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "skipLibCheck": true
   }
 }
