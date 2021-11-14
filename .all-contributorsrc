@@ -54,6 +54,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "sanduluca",
+      "name": "sanduluca",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56228534?v=4",
+      "profile": "https://github.com/sanduluca",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
