@@ -5,10 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2021-11-14
+
+- 💥 [breaking] improve type inference thanks @juanmendes for the idea
+  - since we're improving types in some scenarios (instead of `any` you can get more precise types) this can break your type checks
+
+```ts
+const inputs = document.querySelectorAll("input");
+inputs[0].addEventListener(
+  "input",
+  debounce((event) => {
+    // here Event has `Event` type, before it was just `any`
+    expectType<EventTarget | null>(event.target);
+  }, 0)
+);
+```
+
+- 🧪 introduce tsd type testing
+- 📝 new add past contributors
+- 💅 Add Prettier, format files
+
 ## 2021-02-16 [3.0.0]
 
 - ✨ [new] support for promises (thanks @sanduluca)
-- ✨ [new]. support for callback (thanks @sanduluca)
+- ✨ [new] support for callback (thanks @sanduluca)
 - 📝 [new] Update docs in relation to this release
 - 💥 [breaking] `ts-debounce` assumes that Promise is available
 
