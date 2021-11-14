@@ -1,0 +1,69 @@
+{
+  "projectName": "ts-debounce",
+  "projectOwner": "chodorowicz",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "zacnomore",
+      "name": "Zac",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5839548?v=4",
+      "profile": "http://zacharysvoboda.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "karol-majewski",
+      "name": "Karol Majewski",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/20233319?v=4",
+      "profile": "https://github.com/karol-majewski",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Tuizi",
+      "name": "Fabien Rogeret",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2027148?v=4",
+      "profile": "https://github.com/Tuizi",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "iheidari",
+      "name": "Iman",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1315090?v=4",
+      "profile": "https://github.com/iheidari",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "juanmendes",
+      "name": "juanmendes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/549331?v=4",
+      "profile": "https://github.com/juanmendes",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "sanduluca",
+      "name": "sanduluca",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56228534?v=4",
+      "profile": "https://github.com/sanduluca",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

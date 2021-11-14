@@ -4,12 +4,10 @@
 [![npm](https://img.shields.io/npm/v/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
 [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
 [![npm type definitions](https://img.shields.io/npm/types/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
-[![David](https://img.shields.io/david/chodorowicz/ts-debounce.svg)](https://david-dm.org/chodorowicz/ts-debounce)
-[![David](https://img.shields.io/david/peer/chodorowicz/ts-debounce.svg)](https://david-dm.org/chodorowicz/ts-debounce)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -88,3 +86,28 @@ This implementation is based upon following sources:
 - version 3 - Promise must be available in the global namespace
 - version 2 - TypeScript 3.3
 - version 1 - TypeScript 2.0
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://zacharysvoboda.com"><img src="https://avatars3.githubusercontent.com/u/5839548?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zac</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=zacnomore" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/karol-majewski"><img src="https://avatars1.githubusercontent.com/u/20233319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Karol Majewski</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=karol-majewski" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Tuizi"><img src="https://avatars2.githubusercontent.com/u/2027148?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fabien Rogeret</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=Tuizi" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/iheidari"><img src="https://avatars3.githubusercontent.com/u/1315090?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Iman</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=iheidari" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/juanmendes"><img src="https://avatars.githubusercontent.com/u/549331?v=4?s=100" width="100px;" alt=""/><br /><sub><b>juanmendes</b></sub></a><br /><a href="#ideas-juanmendes" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/sanduluca"><img src="https://avatars.githubusercontent.com/u/56228534?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sanduluca</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=sanduluca" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
