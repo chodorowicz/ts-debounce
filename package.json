@@ -27,15 +27,15 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^26.0.15",
+    "@types/jest": "^27.0.2",
     "all-contributors-cli": "^6.20.0",
-    "jest": "^26.6.3",
+    "jest": "^27.3.1",
     "microbundle": "^0.12.4",
-    "np": "^7.0.0",
-    "prettier": "^2.2.1",
-    "ts-jest": "^26.4.4",
+    "np": "^7.5.0",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
     "tsd": "^0.18.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.4.4"
   },
   "scripts": {
     "build": "microbundle && cp ./src/index.test-d.ts ./dist/src/",
