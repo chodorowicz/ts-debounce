@@ -8,12 +8,8 @@
 [![David](https://img.shields.io/david/peer/chodorowicz/ts-debounce.svg)](https://david-dm.org/chodorowicz/ts-debounce)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-_Debounce_ creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drop previous pending delayed emissions if a new invocation is made before `n` milliseconds.
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->_Debounce_ creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drop previous pending delayed emissions if a new invocation is made before `n` milliseconds.
 
 It's very useful for scenarios when it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user has stopped entering characters for some time.
 
@@ -88,3 +84,16 @@ This implementation is based upon following sources:
 - version 3 - Promise must be available in the global namespace
 - version 2 - TypeScript 3.3
 - version 1 - TypeScript 2.0
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
