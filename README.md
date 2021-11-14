@@ -8,7 +8,7 @@
 [![David](https://img.shields.io/david/peer/chodorowicz/ts-debounce.svg)](https://david-dm.org/chodorowicz/ts-debounce)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->_Debounce_ creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drop previous pending delayed emissions if a new invocation is made before `n` milliseconds.
 
 It's very useful for scenarios when it's better to limit the number of times the function is called. E.g. think of search input which fetches data from API. It's enough display search results after user has stopped entering characters for some time.
@@ -92,8 +92,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://zacharysvoboda.com"><img src="https://avatars3.githubusercontent.com/u/5839548?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zac</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=zacnomore" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/karol-majewski"><img src="https://avatars1.githubusercontent.com/u/20233319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Karol Majewski</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=karol-majewski" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Tuizi"><img src="https://avatars2.githubusercontent.com/u/2027148?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fabien Rogeret</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=Tuizi" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/iheidari"><img src="https://avatars3.githubusercontent.com/u/1315090?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Iman</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=iheidari" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/juanmendes"><img src="https://avatars.githubusercontent.com/u/549331?v=4?s=100" width="100px;" alt=""/><br /><sub><b>juanmendes</b></sub></a><br /><a href="#ideas-juanmendes" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
