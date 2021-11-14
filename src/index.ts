@@ -1,34 +1,39 @@
-/**
- * A function that emits a side effect.
- */
-export type Procedure = (...args: any[]) => any;
-
-export type Options<TT> = {
+export type Options<Result> = {
   isImmediate?: boolean;
   maxWait?: number;
-  callback?: (data: TT) => void;
+  callback?: (data: Result) => void;
 };
 
-export interface DebouncedFunction<F extends Procedure> {
-  (this: ThisParameterType<F>, ...args: Parameters<F>): Promise<ReturnType<F>>;
+export interface DebouncedFunction<
+  Args extends any[],
+  F extends (...args: Args) => any
+> {
+  (this: ThisParameterType<F>, ...args: Args): Promise<ReturnType<F>>;
   cancel: (reason?: any) => void;
 }
 
-export function debounce<F extends Procedure>(
+interface DebouncedPromise<FunctionReturn> {
+  resolve: (result: FunctionReturn) => void;
+  reject: (reason?: any) => void;
+}
+
+export function debounce<Args extends any[], F extends (...args: Args) => any>(
   func: F,
   waitMilliseconds = 50,
   options: Options<ReturnType<F>> = {}
-): DebouncedFunction<F> {
+): {
+  (this: ThisParameterType<F>, ...args: Parameters<F> & Args): Promise<
+    ReturnType<F>
+  >;
+  cancel: (reason?: any) => void;
+} {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
   const isImmediate = options.isImmediate ?? false;
   const callback = options.callback ?? false;
   const maxWait = options.maxWait;
   let lastInvokeTime = Date.now();
 
-  let promises: {
-    resolve: (x: ReturnType<F>) => void;
-    reject: (reason?: any) => void;
-  }[] = [];
+  let promises: DebouncedPromise<ReturnType<F>>[] = [];
 
   function nextInvokeTimeout() {
     if (maxWait !== undefined) {
