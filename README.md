@@ -17,17 +17,7 @@ It's very useful for scenarios when it's better to limit the number of times the
 
 ## Install
 
-You can install this package using `npm` using the command below
-
-```bash
-npm install ts-debounce
-```
-
-If you prefer `yarn`, install using the command below
-
-```bash
-yarn add ts-debounce
-```
+You can install this package using your preferred package manager (`npm`, `pnpm`, `yarn`, etc.)
 
 ## Function arguments
 
