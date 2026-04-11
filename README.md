@@ -80,7 +80,7 @@ This implementation is based upon following sources:
 - [p-debounce](https://github.com/sindresorhus/p-debounce)
 
 ## Compability
-
+- version 5 - TypeScript 3.5 (use of `Awaited` type)
 - version 3 - Promise must be available in the global namespace
 - version 2 - TypeScript 3.3
 - version 1 - TypeScript 2.0
