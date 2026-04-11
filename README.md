@@ -6,9 +6,7 @@
 [![npm type definitions](https://img.shields.io/npm/types/ts-debounce.svg)](https://www.npmjs.com/package/ts-debounce)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 _Debounce_ creates a new function `g`, which when called will delay the invocation of the original function `f` until `n` milliseconds, BUT drop previous pending delayed emissions if a new invocation is made before `n` milliseconds.
@@ -95,14 +93,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="http://zacharysvoboda.com"><img src="https://avatars3.githubusercontent.com/u/5839548?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zac</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=zacnomore" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/karol-majewski"><img src="https://avatars1.githubusercontent.com/u/20233319?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Karol Majewski</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=karol-majewski" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Tuizi"><img src="https://avatars2.githubusercontent.com/u/2027148?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fabien Rogeret</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=Tuizi" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/iheidari"><img src="https://avatars3.githubusercontent.com/u/1315090?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Iman</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=iheidari" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/juanmendes"><img src="https://avatars.githubusercontent.com/u/549331?v=4?s=100" width="100px;" alt=""/><br /><sub><b>juanmendes</b></sub></a><br /><a href="#ideas-juanmendes" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/sanduluca"><img src="https://avatars.githubusercontent.com/u/56228534?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sanduluca</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=sanduluca" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://zacharysvoboda.com"><img src="https://avatars3.githubusercontent.com/u/5839548?v=4?s=100" width="100px;" alt="Zac"/><br /><sub><b>Zac</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=zacnomore" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/karol-majewski"><img src="https://avatars1.githubusercontent.com/u/20233319?v=4?s=100" width="100px;" alt="Karol Majewski"/><br /><sub><b>Karol Majewski</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=karol-majewski" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tuizi"><img src="https://avatars2.githubusercontent.com/u/2027148?v=4?s=100" width="100px;" alt="Fabien Rogeret"/><br /><sub><b>Fabien Rogeret</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=Tuizi" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/iheidari"><img src="https://avatars3.githubusercontent.com/u/1315090?v=4?s=100" width="100px;" alt="Iman"/><br /><sub><b>Iman</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=iheidari" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/juanmendes"><img src="https://avatars.githubusercontent.com/u/549331?v=4?s=100" width="100px;" alt="juanmendes"/><br /><sub><b>juanmendes</b></sub></a><br /><a href="#ideas-juanmendes" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sanduluca"><img src="https://avatars.githubusercontent.com/u/56228534?v=4?s=100" width="100px;" alt="sanduluca"/><br /><sub><b>sanduluca</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=sanduluca" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/urbanfly"><img src="https://avatars.githubusercontent.com/u/4717711?v=4?s=100" width="100px;" alt="Robert Taylor"/><br /><sub><b>Robert Taylor</b></sub></a><br /><a href="https://github.com/chodorowicz/ts-debounce/commits?author=urbanfly" title="Code">💻</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
