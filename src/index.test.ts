@@ -4,7 +4,7 @@ const FIXED_SYSTEM_TIME = "2020-01-12T00:00:00Z";
 
 describe("debounce", () => {
   beforeEach(() => {
-    jest.useFakeTimers("modern");
+    jest.useFakeTimers();
     jest.setSystemTime(Date.parse(FIXED_SYSTEM_TIME));
   });
   test("it properly debounces function", () => {

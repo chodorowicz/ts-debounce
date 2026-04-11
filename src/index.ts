@@ -9,7 +9,7 @@ export interface DebouncedFunction<
   F extends (...args: Args) => any
 > {
   (this: ThisParameterType<F>, ...args: Args & Parameters<F>): Promise<
-    ReturnType<F>
+    Awaited<ReturnType<F>>
   >;
   cancel: (reason?: any) => void;
 }
@@ -30,7 +30,7 @@ export function debounce<Args extends any[], F extends (...args: Args) => any>(
   const maxWait = options.maxWait;
   let lastInvokeTime = Date.now();
 
-  let promises: DebouncedPromise<ReturnType<F>>[] = [];
+  let promises: DebouncedPromise<Awaited<ReturnType<F>>>[] = [];
 
   function nextInvokeTimeout() {
     if (maxWait !== undefined) {
@@ -49,7 +49,7 @@ export function debounce<Args extends any[], F extends (...args: Args) => any>(
     ...args: Parameters<F>
   ) {
     const context = this;
-    return new Promise<ReturnType<F>>((resolve, reject) => {
+    return new Promise<Awaited<ReturnType<F>>>((resolve, reject) => {
       const invokeFunction = function () {
         timeoutId = undefined;
         lastInvokeTime = Date.now();

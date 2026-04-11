@@ -1,4 +1,4 @@
-import { expectType } from "tsd";
+import { expectAssignable, expectType } from "tsd";
 import { debounce } from "./index";
 
 const f = debounce((value: string) => value, 1000);
@@ -37,3 +37,6 @@ debounce(() => Promise.resolve(42), 100, {
     expectType<Promise<number>>(data);
   },
 });
+
+// assert that the debounced function return type is a simple promise
+expectAssignable<() => Promise<number>>(debounce(() => Promise.resolve(42)));
