@@ -99,6 +99,24 @@ describe("debounce", () => {
       jest.advanceTimersByTime(1);
       expect(func).toBeCalled();
     });
+
+    test("it does not fire immediately when first called long after debounce creation", () => {
+      const func = jest.fn();
+      const debouncedFunction = debounce(func, 2000, { maxWait: 5000 });
+
+      // simulate calling the debounced function long after creation (> maxWait ms)
+      jest.advanceTimersByTime(10000);
+      debouncedFunction();
+
+      // should NOT fire immediately — wait should still be 2000ms
+      expect(func).not.toBeCalled();
+
+      jest.advanceTimersByTime(1999);
+      expect(func).not.toBeCalled();
+
+      jest.advanceTimersByTime(1);
+      expect(func).toBeCalled();
+    });
   });
 
   describe("callback", () => {
