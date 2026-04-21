@@ -17,7 +17,7 @@ inputs[0].addEventListener(
   debounce((event) => {
     // here Event has `Event` type, before it was just `any`
     expectType<EventTarget | null>(event.target);
-  }, 0)
+  }, 0),
 );
 ```
 
