@@ -28,16 +28,16 @@ export function debounce<Args extends any[], F extends (...args: Args) => any>(
   const isImmediate = options.isImmediate ?? false;
   const callback = options.callback ?? false;
   const maxWait = options.maxWait;
-  let lastInvokeTime = Date.now();
+  let lastInvokeTime: number | undefined;
 
   let promises: DebouncedPromise<Awaited<ReturnType<F>>>[] = [];
 
   function nextInvokeTimeout() {
-    if (maxWait !== undefined) {
+    if (maxWait !== undefined && lastInvokeTime !== undefined) {
       const timeSinceLastInvocation = Date.now() - lastInvokeTime;
 
       if (timeSinceLastInvocation + waitMilliseconds >= maxWait) {
-        return maxWait - timeSinceLastInvocation;
+        return Math.max(0, maxWait - timeSinceLastInvocation);
       }
     }
 
@@ -62,6 +62,10 @@ export function debounce<Args extends any[], F extends (...args: Args) => any>(
       };
 
       const shouldCallNow = isImmediate && timeoutId === undefined;
+
+      if (timeoutId === undefined) {
+        lastInvokeTime = Date.now();
+      }
 
       if (timeoutId !== undefined) {
         clearTimeout(timeoutId);
