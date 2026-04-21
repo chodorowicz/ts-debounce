@@ -12,13 +12,13 @@ describe("debounce", () => {
     const debouncedFunction = debounce(func, 100);
 
     debouncedFunction();
-    expect(func).not.toBeCalled();
+    expect(func).not.toHaveBeenCalled();
 
     jest.advanceTimersByTime(50);
-    expect(func).not.toBeCalled();
+    expect(func).not.toHaveBeenCalled();
 
     jest.advanceTimersByTime(100);
-    expect(func).toBeCalled();
+    expect(func).toHaveBeenCalled();
     expect(func.mock.calls.length).toBe(1);
   });
 
@@ -27,7 +27,7 @@ describe("debounce", () => {
     const debouncedFunction = debounce(func, 100, { isImmediate: true });
 
     debouncedFunction();
-    expect(func).toBeCalled();
+    expect(func).toHaveBeenCalled();
     expect(func.mock.calls.length).toBe(1);
 
     jest.advanceTimersByTime(50);
@@ -46,15 +46,15 @@ describe("debounce", () => {
     const debouncedFunction = debounce(func, 100);
 
     const result = debouncedFunction();
-    expect(func).not.toBeCalled();
+    expect(func).not.toHaveBeenCalled();
 
     jest.advanceTimersByTime(50);
-    expect(func).not.toBeCalled();
+    expect(func).not.toHaveBeenCalled();
 
     debouncedFunction.cancel();
 
     jest.advanceTimersByTime(100);
-    expect(func).not.toBeCalled();
+    expect(func).not.toHaveBeenCalled();
 
     expect(result).rejects.toBeUndefined();
   });
@@ -66,12 +66,12 @@ describe("debounce", () => {
       debouncedFunction();
 
       jest.advanceTimersByTime(50);
-      expect(func).not.toBeCalled();
+      expect(func).not.toHaveBeenCalled();
       debouncedFunction();
 
       // function should be called because of maxWait
       jest.advanceTimersByTime(100);
-      expect(func).toBeCalled();
+      expect(func).toHaveBeenCalled();
     });
 
     test("it calls func with maxWait < wait correctly", () => {
@@ -81,7 +81,7 @@ describe("debounce", () => {
 
       // function should be called because of maxWait
       jest.advanceTimersByTime(50);
-      expect(func).toBeCalled();
+      expect(func).toHaveBeenCalled();
 
       jest.advanceTimersByTime(50);
       expect(func.mock.calls.length).toBe(1);
@@ -97,7 +97,7 @@ describe("debounce", () => {
       debouncedFunction();
 
       jest.advanceTimersByTime(1);
-      expect(func).toBeCalled();
+      expect(func).toHaveBeenCalled();
     });
 
     test("it does not fire immediately when first called long after debounce creation", () => {
@@ -109,13 +109,13 @@ describe("debounce", () => {
       debouncedFunction();
 
       // should NOT fire immediately — wait should still be 2000ms
-      expect(func).not.toBeCalled();
+      expect(func).not.toHaveBeenCalled();
 
       jest.advanceTimersByTime(1999);
-      expect(func).not.toBeCalled();
+      expect(func).not.toHaveBeenCalled();
 
       jest.advanceTimersByTime(1);
-      expect(func).toBeCalled();
+      expect(func).toHaveBeenCalled();
     });
   });
 
@@ -133,7 +133,7 @@ describe("debounce", () => {
       const promise = debouncedFunction();
       jest.advanceTimersByTime(100);
       await promise;
-      expect(callback).toBeCalledWith(mockValue);
+      expect(callback).toHaveBeenCalledWith(mockValue);
     });
 
     test("callback receives a Promise (not the resolved value) when debouncing an async function", async () => {
