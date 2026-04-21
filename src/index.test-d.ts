@@ -17,7 +17,7 @@ inputs[0].addEventListener(
   "input",
   debounce((event) => {
     expectType<EventTarget | null>(event.target);
-  }, 0)
+  }, 0),
 );
 
 // simplifed use case
@@ -28,7 +28,7 @@ function testInference(g: (a: number) => void): any {
 testInference(
   debounce((a) => {
     expectType<number>(a);
-  })
+  }),
 );
 
 // assert that callback function receives the raw return value of the debounced function — Promise<T>, not T.
